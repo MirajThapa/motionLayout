@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/endFullScreen"
+        motion:constraintSetStart="@id/startFullScreen"
+        motion:duration="100">
+        <KeyFrameSet>
+            <KeyPosition
+                motion:motionTarget="@id/imgSmallScreen"
+                motion:framePosition="3"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.25"
+                motion:percentY="-0.3" />
+        </KeyFrameSet>
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@+id/imgSmallScreen"/>
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/endSmallScreen"
+        motion:constraintSetStart="@id/startSmallScreen"
+        motion:autoTransition="animateToEnd"
+        motion:duration="600">
+        <KeyFrameSet>
+
+        </KeyFrameSet>
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@+id/imgSmallScreen"/>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/startSmallScreen">
+            <Constraint
+                android:id="@+id/imgSmallScreen"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:elevation="3dp"
+                motion:layout_constraintTop_toTopOf="parent"
+                motion:layout_constraintRight_toRightOf="parent">
+
+                <CustomAttribute
+                    motion:attributeName="saturation"
+                    motion:customFloatValue="1"/>
+            </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/startFullScreen">
+        <Constraint
+            android:id="@+id/imgFullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="15sp"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/endSmallScreen">
+
+            <Constraint
+                android:id="@+id/imgSmallScreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                motion:layout_constraintTop_toTopOf="parent"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintRight_toRightOf="parent"
+                motion:layout_constraintLeft_toLeftOf="parent">
+
+                <CustomAttribute
+                    motion:attributeName="textSize"
+                    motion:customDimension="15sp"/>
+            </Constraint>
+
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/endFullScreen">
+        <Constraint
+            android:id="@+id/imgFullScreen"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:elevation="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintRight_toRightOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="saturation"
+                motion:customDimension="15sp"/>
+        </Constraint>
+
+    </ConstraintSet>
+</MotionScene>
